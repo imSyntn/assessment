@@ -1,7 +1,11 @@
 {
   "extends": "@repo/typescript-config/vite.json",
-  "include": ["src"],
+  "include": ["src", "../../packages/ui/src/lib/utils.ts"],
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@repo/ui/*": ["../../packages/ui/src/*"]
+    }
   }
 }

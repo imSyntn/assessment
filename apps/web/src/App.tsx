@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { api } from "../lib/api";
+import { Button } from "@repo/ui/components/button";
 
 const App = () => {
   useEffect(() => {
@@ -12,7 +13,11 @@ const App = () => {
 
     run();
   }, []);
-  return <div>App</div>;
+  return (
+    <div>
+      <Button variant="destructive">hey</Button>
+    </div>
+  );
 };
 
 export default App;

@@ -1,6 +1,7 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { healthRoute, chatRoute, agentsRoute } from "./routes";
 
 export const app = new Hono();
 
@@ -11,13 +12,13 @@ app.use(
   }),
 );
 
-app.get("/health", (c) => {
-  return c.json({ ok: true });
-});
-
 app.get("/", (c) => {
   return c.json({ message: "Hello World" });
 });
+
+app.route("/api/health", healthRoute);
+app.route("/api/chat", chatRoute);
+app.route("/api/agents", agentsRoute);
 
 export type AppType = typeof app;
 
