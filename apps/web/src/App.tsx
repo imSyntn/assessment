@@ -14,8 +14,20 @@ const App = () => {
     run();
   }, []);
   return (
-    <div>
-      <Button variant="destructive">hey</Button>
+    <div
+      style={{
+        padding: "20px",
+        display: "flex",
+        gap: "10px",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      }}
+    >
+      <Button variant="default">Default Button</Button>
+      <Button variant="destructive">Destructive Button</Button>
+      <Button variant="outline">Outline Button</Button>
+      <Button variant="secondary">Secondary Button</Button>
+      <Button variant="ghost">Ghost Button</Button>
     </div>
   );
 };

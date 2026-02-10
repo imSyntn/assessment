@@ -125,6 +125,9 @@ importers:
 
   packages/db:
     dependencies:
+      '@prisma/adapter-pg':
+        specifier: ^7.3.0
+        version: 7.3.0
       '@prisma/client':
         specifier: ^7.3.0
         version: 7.3.0(prisma@7.3.0)(typescript@5.5.4)
@@ -1356,6 +1359,16 @@ packages:
     resolution: {integrity: sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg==}
     dev: true
 
+  /@prisma/adapter-pg@7.3.0:
+    resolution: {integrity: sha512-iuYQMbIPO6i9O45Fv8TB7vWu00BXhCaNAShenqF7gLExGDbnGp5BfFB4yz1K59zQ59jF6tQ9YHrg0P6/J3OoLg==}
+    dependencies:
+      '@prisma/driver-adapter-utils': 7.3.0
+      pg: 8.18.0
+      postgres-array: 3.0.4
+    transitivePeerDependencies:
+      - pg-native
+    dev: false
+
   /@prisma/client-runtime-utils@7.3.0:
     resolution: {integrity: sha512-dG/ceD9c+tnXATPk8G+USxxYM9E6UdMTnQeQ+1SZUDxTz7SgQcfxEqafqIQHcjdlcNK/pvmmLfSwAs3s2gYwUw==}
     dev: false
@@ -1418,6 +1431,12 @@ packages:
       zeptomatch: 2.1.0
     transitivePeerDependencies:
       - typescript
+    dev: false
+
+  /@prisma/driver-adapter-utils@7.3.0:
+    resolution: {integrity: sha512-Wdlezh1ck0Rq2dDINkfSkwbR53q53//Eo1vVqVLwtiZ0I6fuWDGNPxwq+SNAIHnsU+FD/m3aIJKevH3vF13U3w==}
+    dependencies:
+      '@prisma/debug': 7.3.0
     dev: false
 
   /@prisma/engines-version@7.3.0-16.9d6ad21cbbceab97458517b147a6a09ff43aa735:
@@ -5556,6 +5575,11 @@ packages:
   /postgres-array@2.0.0:
     resolution: {integrity: sha512-VpZrUqU5A69eQyW2c5CA1jtLecCsN2U/bD6VilrFDWq5+5UIEVO7nazS3TEcHf1zuPYO/sqGvUvW62g86RXZuA==}
     engines: {node: '>=4'}
+
+  /postgres-array@3.0.4:
+    resolution: {integrity: sha512-nAUSGfSDGOaOAEGwqsRY27GPOea7CNipJPOA7lPbdEpx5Kg3qzdP0AaWC5MlhTWV9s4hFX39nomVZ+C4tnGOJQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /postgres-bytea@1.0.1:
     resolution: {integrity: sha512-5+5HqXnsZPE65IJZSMkZtURARZelel2oXUEO8rH83VS/hxH5vv1uHquPg5wZs8yMAfdv971IU+kcPUczi7NVBQ==}
