@@ -9,6 +9,7 @@ import { EmptyState } from "./EmptyState";
 import { MessageBox } from "./MessageBox";
 import { TypingIndicator } from "./TypingIndicator";
 import { UserInput } from "./UserInput";
+import { HealthStatus } from "./HealthStatus";
 
 export const ConversationDetails = ({
   conversationId,
@@ -90,9 +91,12 @@ export const ConversationDetails = ({
 
   return (
     <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
-      <div className="border-b p-4">
-        <h1 className="text-xl font-semibold">Customer Support Chat</h1>
-        <p className="text-sm text-muted-foreground">{conversationName}</p>
+      <div className="border-b p-4 flex justify-between items-center">
+        <div className="">
+          <h1 className="text-xl font-semibold">Customer Support Chat</h1>
+          <p className="text-sm text-muted-foreground">{conversationName}</p>
+        </div>
+        <HealthStatus />
       </div>
       <ScrollArea className="flex-1 min-h-0 p-4">
         {messagesLoading ? (
