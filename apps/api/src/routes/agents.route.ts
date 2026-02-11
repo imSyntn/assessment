@@ -1,16 +1,8 @@
 import { Hono } from "hono";
+import { agentCapabilities, listAgents } from "../controllers";
 
 const agentsRoute = new Hono();
 
-agentsRoute
-  .get("/", (c) => {
-    c.status(200);
-    return c.json({ ok: true, message: "agents" });
-  })
-  .get("/:type/capabilities", (c) => {
-    const type = c.req.param("type");
-    c.status(200);
-    return c.json({ ok: true, message: `capabilities of ${type}` });
-  });
+agentsRoute.get("/", listAgents).get("/:type/capabilities", agentCapabilities);
 
 export { agentsRoute };

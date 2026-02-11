@@ -115,6 +115,20 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Chat Layout */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

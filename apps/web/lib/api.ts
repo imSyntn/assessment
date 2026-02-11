@@ -1,4 +1,4 @@
 import { hc } from "hono/client";
-import type { AppType } from "../../api/src/app";
+import type { AppType } from "@repo/api";
 
-export const api = hc<AppType>("http://localhost:3000/");
+export const honoClient = hc<AppType>("http://localhost:3000/api/");

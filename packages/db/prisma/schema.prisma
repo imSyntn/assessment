@@ -12,3 +12,68 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Conversation {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  heading   String?
+  messages  Message[]
+}
+
+enum Role {
+  USER
+  AGENT
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  role           Role
+  data           String
+  createdAt      DateTime     @default(now())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  CANCELLED
+  RETURNED
+}
+
+enum OrderTracking {
+  ON_WAY
+  DELIVERED
+  RETURNED
+}
+
+model Order {
+  id        String        @id @default(uuid())
+  createdAt DateTime      @default(now())
+  price     Float
+  status    OrderStatus   @default(PENDING)
+  tracking  OrderTracking @default(ON_WAY)
+  invoice   Invoice?
+}
+
+model Invoice {
+  id      String  @id @default(uuid())
+  orderId String  @unique
+  amount  Float
+  refund  Refund?
+  order   Order   @relation(fields: [orderId], references: [id])
+}
+
+enum RefundStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+model Refund {
+  id        String       @id @default(uuid())
+  invoiceId String       @unique
+  status    RefundStatus @default(PENDING)
+  invoice   Invoice      @relation(fields: [invoiceId], references: [id])
+}
