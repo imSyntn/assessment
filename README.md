@@ -35,7 +35,7 @@ Before you begin, ensure you have the following installed:
 
    > **Note**: Replace the placeholder values with your actual credentials.
 
-   > **Note**: You can use this for demo (No need to SEED)
+   > **Note**: You can use this burner database for demo (No need to SEED)
 
    ```env
    DATABASE_URL="postgresql://neondb_owner:npg_4CHXWlZktp8E@ep-blue-wave-aiuco3i8-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
